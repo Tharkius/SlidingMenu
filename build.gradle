@@ -1,0 +1,59 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// ----------- Application version definition -----------
+
+def computeVersionCode() {
+    return 2021083101
+}
+
+def computeVersionName() {
+    return "1.0"
+}
+
+// ----------- Compile SDK and build tools Version -----------
+
+def computeCompileSdkVersion() {
+    return 17
+}
+
+def computeBuildToolsVersion() {
+    return "17.0.0"
+}
+
+// ----------- Target SDK Version -----------
+
+def computeTargetSdkVersion() {
+    return 16
+}
+
+// ----------- Min SDK Versions -----------
+
+def computeMinSdkVersion() {
+    return 7
+}
+
+// ----------- Support Version -----------
+
+def computeSupportVersion() {
+    return "13.0.0"
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.0'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

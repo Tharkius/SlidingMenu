@@ -1,37 +1,20 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:0.4.+'
-    }
-}
-apply plugin: 'android-library'
-
-dependencies {
-    compile 'com.android.support:support-v4:13.0.0'
-}
+apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion "17.0.0"
+    compileSdkVersion computeCompileSdkVersion().toInteger()
+    buildToolsVersion computeBuildToolsVersion()
 
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 16
+        minSdkVersion computeMinSdkVersion().toInteger()
+        targetSdkVersion computeTargetSdkVersion().toInteger()
+
+        versionCode computeVersionCode().toInteger()
+        versionName computeVersionName()
+        
+        resConfigs "en"
     }
+}
 
-    sourceSets {
-        main {
-            java.srcDirs = ['src']
-            resources.srcDirs = ['src']
-            aidl.srcDirs = ['src']
-            renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
-            assets.srcDirs = ['assets']
-
-            manifest.srcFile 'AndroidManifest.xml'
-        }
-    }
-
+dependencies {
+    implementation 'com.android.support:support-v4:' + computeSupportVersion()
 }

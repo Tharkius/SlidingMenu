@@ -20,3 +20,9 @@ gen
 target/
 
 *.iml
+/.gradle
+/.idea
+/local.properties
+/build
+/captures
+
